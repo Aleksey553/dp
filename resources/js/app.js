@@ -33,6 +33,7 @@ const app = new Vue({
 });
 
 
+
 var ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
 ClassicEditor
     .create(document.querySelector('#pr_description'))

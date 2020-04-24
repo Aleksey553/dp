@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-user')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Тут будет список записей
                 </div>
             </div>
         </div>

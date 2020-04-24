@@ -30,10 +30,10 @@
                                 <td>@if($category->published == 1)да @else нет @endif</td>
                                 <td class="text-right">
 
-                                    <form  method="post" onsubmit="if(confirm('Удалить?')){return true}else{return false}" action="{{route("admin.category.destroy", $category)}}">
+                                    <form  method="post" onsubmit="if(confirm('Удалить?')){return true}else{return false}" action="{{route("admin.car_category.destroy", $category)}}">
                                         <input type="hidden" name="_method" value="DELETE">
                                         {{csrf_field()}}
-                                        <a class="btn btn-default" href="{{route('admin.category.edit', $category)}}">
+                                        <a class="btn btn-default" href="{{route('admin.car_category.edit', $category)}}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <button class="btn btn-default" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -53,7 +53,6 @@
                                     <ul class="pagination pull-right">
                                         {{$categories->links()}}
                                     </ul>
-
                                 </td>
                             </tr>
                         @endif
@@ -61,7 +60,7 @@
                     </table>
                 </div>
             </div>
-            <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right">
+            <a href="{{route('admin.car_category.create')}}" class="btn btn-primary pull-right">
                 <i class="fa fa-plus-square-o"></i>Создать категорию
             </a>
         </div>

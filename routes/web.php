@@ -14,14 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/home', 'HomeController@index')->name('home')->middleware([]);
 Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::group(['prefix' =>'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'verified']], function(){
+Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'verified']], function(){
+    Route::get("/{user}", 'ProfileController@index')->name('user.index');
+    Route::get("/{user}/edit", 'ProfileController@edit')->name('user.edit');
+    Route::put("/{user}", 'ProfileController@update');
+});
+Route::group(['prefix' =>'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'can:admin-panel']], function(){
     Route::get('/', 'DashboardController@index')->name('admin.index');
     Route::resource('/category', 'CategoryController',  ['as' => 'admin']);
     Route::resource('/services', 'ServiceController',  ['as' => 'admin']);
+    Route::resource('/car_category', 'CarCategoryController',  ['as' => 'admin']);
 
     Route::group(['prefix' =>'user_management', 'namespace' => 'UserManagment' ],function (){
         Route::resource('/user', 'UserController',  ['as' => 'admin.user_management']);

@@ -38,7 +38,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="{{route('home')}}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -156,10 +156,10 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="{{route('admin.index')}}" class="brand-link">
             <img src="{{ asset('AdminLte 3.0/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">DriveService</span>
         </a>
 
         <!-- Sidebar -->
@@ -170,7 +170,7 @@
                     <img src="{{ asset('AdminLte 3.0/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('admin.user_management.user.edit', Auth::user()) }}" class="d-block">{{ Auth::user()->name }}</a>
                 </div>
             </div>
 
@@ -248,6 +248,29 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview {{ Request::is('admin/car_category/*') ? 'active menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ Request::is('admin/car_category/*') ? 'active' : '' }}">
+                            {{--                            <i class="nav-icon fas fa-tachometer-alt"></i>--}}
+                            <p>
+                                Действия с категориями автомобилей
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.car_category.index')}}" class="nav-link {{ Request::is('admin/car_category') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Список категорий</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.car_category.create')}}" class="nav-link {{ Request::is('admin/car_category/create') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Создание категории</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-header">LABELS</li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
@@ -309,6 +332,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+<script src="{{asset('js/app.js') }}"></script>
 <script src="{{asset('AdminLte 3.0/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('AdminLte 3.0/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -343,7 +367,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('AdminLte 3.0/dist/js/demo.js') }}"></script>
 <script src="{{asset('AdminLte 3.0/dist/js/demo.js') }}"></script>
-<script src="{{asset('js/app.js') }}"></script>
+
 <script>
 
 

@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -64,6 +65,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    @if(Auth::user()->role == App\User::ROLE_USER)
+                                        <a class="dropdown-item" href="{{ route('user.index', Auth::user()) }}">
+                                            {{ 'profile' }}
+                                        </a>
+                                    @endif
                                 </div>
                             </li>
                         @endguest
@@ -71,7 +77,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

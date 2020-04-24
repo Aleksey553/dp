@@ -41,11 +41,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
+            'role' =>['required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         User::create([
+            'role' =>$request['role'],
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
@@ -85,10 +87,12 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validator = $request->validate([
+            'role' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
+        $user->role = $request['role'];
         $user->name = $request['name'];
         $user->email = $request['email'];
         $request['password'] == null? $user->password : $user->password = Hash::make($request['password']);
@@ -104,6 +108,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('admin.user_management.user.index');
     }
 }
