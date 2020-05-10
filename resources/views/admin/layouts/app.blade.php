@@ -6,25 +6,9 @@
     <title>AdminLTE 3 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/jqvmap/jqvmap.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/dist/css/adminlte.min.css') }}">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/daterangepicker/daterangepicker.css') }}">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/summernote/summernote-bs4.css') }}">
-    <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -156,7 +140,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="{{route('admin.index')}}" class="brand-link">
+        <a href="{{route('main')}}" class="brand-link">
             <img src="{{ asset('AdminLte 3.0/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">DriveService</span>
@@ -177,101 +161,78 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview {{ Request::is('admin/category*') ? 'active menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/category*') ? 'active' : '' }}">
-{{--                            <i class="nav-icon fas fa-tachometer-alt"></i>--}}
-                            <p>
-                                Действия с категориями
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.category.index')}}" class="nav-link {{ Request::is('admin/category') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список категорий</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('admin.category.create')}}" class="nav-link {{ Request::is('admin/category/create') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Создание категории</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview {{ Request::is('admin/services*') ? 'active menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/services*') ? 'active' : '' }}">
-                            {{--                            <i class="nav-icon fas fa-tachometer-alt"></i>--}}
-                            <p>
-                                Действия с услугами
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.services.index')}}" class="nav-link {{ Request::is('admin/services') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список категорий</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('admin.services.create')}}" class="nav-link {{ Request::is('admin/services/create') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Создание категории</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview {{ Request::is('admin/user_management/user*') ? 'active menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/user_management/user*') ? 'active' : '' }}">
-                            {{--                            <i class="nav-icon fas fa-tachometer-alt"></i>--}}
-                            <p>
-                                Управление пользователями
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.user_management.user.index')}}" class="nav-link {{ Request::is('admin/user_management/user') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список пользователей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('admin.user_management.user.create')}}" class="nav-link {{ Request::is('admin/user_management/user/create') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Создание пользователя</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview {{ Request::is('admin/car_category/*') ? 'active menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/car_category/*') ? 'active' : '' }}">
-                            {{--                            <i class="nav-icon fas fa-tachometer-alt"></i>--}}
-                            <p>
-                                Действия с категориями автомобилей
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.car_category.index')}}" class="nav-link {{ Request::is('admin/car_category') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Список категорий</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('admin.car_category.create')}}" class="nav-link {{ Request::is('admin/car_category/create') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Создание категории</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header">LABELS</li>
+                {{--Категории--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с категориями @endslot
+                        @slot('menuOpen') {!! Request::is('admin/category*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/category*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/category')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/category/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список категорий  @endslot
+                        @slot('nameCreate') Создать категорию  @endslot
+                        @slot('routeIndex') {!! route('admin.category.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.category.create')!!}  @endslot
+                    @endcomponent
+                {{--Услуги--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с услугами @endslot
+                        @slot('menuOpen') {!! Request::is('admin/services*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/services*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/services')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/services/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список услуг  @endslot
+                        @slot('nameCreate') Создать услугу  @endslot
+                        @slot('routeIndex') {!! route('admin.services.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.services.create')!!}  @endslot
+                    @endcomponent
+                {{--Пользователи--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с пользователями @endslot
+                        @slot('menuOpen') {!! Request::is('admin/user_management/user*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/user_management/user*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/user_management/user')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/user_management/user/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список пользователей  @endslot
+                        @slot('nameCreate') Создать пользователя  @endslot
+                        @slot('routeIndex') {!! route('admin.user_management.user.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.user_management.user.create')!!}  @endslot
+                    @endcomponent
+                    {{--Типы машин--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с типами машин @endslot
+                        @slot('menuOpen') {!! Request::is('admin/car_type*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/car_type*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/car_type')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/car_type/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список типов @endslot
+                        @slot('nameCreate') Создать тип @endslot
+                        @slot('routeIndex') {!! route('admin.car_type.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.car_type.create')!!}  @endslot
+                    @endcomponent
+                    {{--Марки машин--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с марками машин @endslot
+                        @slot('menuOpen') {!! Request::is('admin/car_mark*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/car_mark*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/car_mark')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/car_mark/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список марок @endslot
+                        @slot('nameCreate') Создать марку @endslot
+                        @slot('routeIndex') {!! route('admin.car_mark.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.car_mark.create')!!}  @endslot
+                    @endcomponent
+                    {{--Модели машин--}}
+                    @component('admin.components.nav-item.nav-menu-open')
+                        @slot('mainTitle') Действия с моделями машин @endslot
+                        @slot('menuOpen') {!! Request::is('admin/car_model*') ? 'menu-open' : '' !!} @endslot
+                        @slot('menuActive') {!! Request::is('admin/car_model*') ? 'active' : '' !!}  @endslot
+                        @slot('activeIndex') {!! Request::is('admin/car_model')  ? 'active' : '' !!} @endslot
+                        @slot('activeCreate') {!! Request::is('admin/car_model/create') ? 'active' : '' !!}  @endslot
+                        @slot('nameIndex') Список моделей @endslot
+                        @slot('nameCreate') Создать модель @endslot
+                        @slot('routeIndex') {!! route('admin.car_model.index')!!}  @endslot
+                        @slot('routeCreate') {!! route('admin.car_model.create')!!}  @endslot
+                    @endcomponent
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -283,25 +244,6 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-danger"></i>
-                            <p class="text">Important</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-warning"></i>
-                            <p>Warning</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-info"></i>
-                            <p>Informational</p>
-                        </a>
                     </li>
                 </ul>
             </nav>
@@ -331,45 +273,8 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
 <script src="{{asset('js/app.js') }}"></script>
-<script src="{{asset('AdminLte 3.0/plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('AdminLte 3.0/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('AdminLte 3.0/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{asset('AdminLte 3.0/plugins/chart.js/Chart.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{asset('AdminLte 3.0/plugins/sparklines/sparkline.js') }}"></script>
-<!-- JQVMap -->
-<script src="{{asset('AdminLte 3.0/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-<script src="{{asset('AdminLte 3.0/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('AdminLte 3.0/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('AdminLte 3.0/plugins/moment/moment.min.js') }}"></script>
-<script src="{{asset('AdminLte 3.0/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('AdminLte 3.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-<!-- Summernote -->
-<script src="{{asset('AdminLte 3.0/plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('AdminLte 3.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('AdminLte 3.0/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('AdminLte 3.0/dist/js/pages/dashboard.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('AdminLte 3.0/dist/js/demo.js') }}"></script>
-<script src="{{asset('AdminLte 3.0/dist/js/demo.js') }}"></script>
-
-<script>
-
 
     $('.nav-link').on('click', function () {
         if (!$(this).hasClass('active'))

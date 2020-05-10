@@ -63,6 +63,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+//        foreach (Category::with('children')->where('parent_id', '0')->get() as $sdd){
+//            print_r($sdd->children);
+//        }
+//        dd(Category::with('children')->where('parent_id', '0')->get());
         return view('admin.categories.edit', [
             'category' => $category,
             'categories' => Category::with('children')->where('parent_id', '0')->get(),

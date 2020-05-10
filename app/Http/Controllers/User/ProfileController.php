@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,9 +14,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
-        return view('user.index', ['user' => $user]);
+        return view('user.index', ['user' => Auth::user()]);
     }
 
     /**
@@ -58,7 +59,7 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit', ['user' => $user]);
+//        return view('user.edit', ['user' => $user]);
     }
 
     /**

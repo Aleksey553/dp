@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -20,7 +19,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+Vue.component('form-component', require('./components/main_form/Form.vue').default);
+Vue.component('form-recursive-categories', require('./components/main_form/FormRecursiveCategories.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -28,13 +28,19 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 
+
+
 const app = new Vue({
     el: '#app',
 });
 
 
+$.widget.bridge('uibutton', $.ui.button);
+
 
 var ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
+
+
 ClassicEditor
     .create(document.querySelector('#pr_description'))
     .catch(error => {
@@ -44,4 +50,3 @@ ClassicEditor.create(document.querySelector('#description'))
     .catch(error => {
         console.error(error);
     });
-

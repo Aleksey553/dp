@@ -20,6 +20,8 @@ readonly>
 <label for="">Родительская категория</label>
 <select class="form-control" name="parent_id" >
         <option value="0"> <- Без родительской категиории -> </option>
+
+{{--        {{dd($categories)}}--}}
         @include('admin.categories.partials.categories', ['categories' => $categories])
 </select>
 

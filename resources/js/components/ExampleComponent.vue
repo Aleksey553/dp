@@ -16,6 +16,9 @@
 
 <script>
     export default {
+        props:[
+            'carType'
+        ],
         mounted() {
             console.log('Component mounted.')
         }

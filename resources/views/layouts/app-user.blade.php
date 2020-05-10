@@ -9,16 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="{{ asset('AdminLte 3.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -65,11 +58,12 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    @if(Auth::user()->role == App\User::ROLE_USER)
-                                        <a class="dropdown-item" href="{{ route('user.index', Auth::user()) }}">
-                                            {{ 'profile' }}
-                                        </a>
-                                    @endif
+                                    <a class="dropdown-item" href="{{ Auth::user()->role == App\User::ROLE_ADMIN ? route('admin.user_management.user.edit', Auth::user()): route('profile.index') }}">
+                                        {{ 'profile' }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{'#orders'}}">
+                                        {{ 'my orders' }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest
@@ -82,4 +76,7 @@
         </main>
     </div>
 </body>
+
+<script src="{{asset('js/app.js') }}"></script>
+
 </html>

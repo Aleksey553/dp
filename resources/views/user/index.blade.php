@@ -24,7 +24,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="3">
-                                <a class="btn btn-default" href="{{route('user.edit', $user)}}">
+{{--                                <a class="btn btn-default" href="{{route('user.edit', $user)}}">--}}
                                     Редактировать данные
                                 </a>
                             </td>
