@@ -62,6 +62,7 @@
 </template>
 
 <script>
+    alert('Работает!');
     export default {
         props:[
             'types'
