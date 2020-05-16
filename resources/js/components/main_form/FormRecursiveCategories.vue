@@ -16,7 +16,6 @@
     </div>
 </template>
 <script>
-alert('Работает 2!');
     export default {
         name: 'FormRecursiveCategories',
         props: {
