@@ -11,15 +11,16 @@
 |
 */
 
+
+//Route::post('/register', 'Api\Auth\UserController@register');
+
 Route::get('/', 'VueController@index')->name('main');
-Route::group(['prefix' => 'api', 'middleware' => ['accessDenied']], function(){
+Route::group(['prefix' => 'api', 'middleware' => ['auth:api']], function(){
     Route::get('/mark/{idType}', 'VueController@getMarks');
     Route::get('/model/{idMark}', 'VueController@getModels');
-    Route::get('/category/', 'VueController@getCategories');
+    Route::get('/category', 'VueController@getCategories');
     Route::get('/category/{id}', 'VueController@getCategory');
-
 });
-
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['verified']);
 Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'verified']], function(){
