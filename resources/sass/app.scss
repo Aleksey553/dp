@@ -14,8 +14,26 @@
 @import '~admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
 @import '~admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
 @import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.min';
+#asd{
+    height: 100px !important;
+}
 
+#user-footer{
+    bottom: 0;
+    margin-left: 0;
+}
+.user-body{
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+@media (min-width: 500.98px) {
+    #user-footer{
+        position: relative;
+    }
 }

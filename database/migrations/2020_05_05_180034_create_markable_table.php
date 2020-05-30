@@ -13,8 +13,8 @@ class CreateMarkableTable extends Migration
      */
     public function up()
     {
-        Schema::create('markable', function (Blueprint $table) {
-            $table->integer('car_type_id');
+        Schema::create('markables', function (Blueprint $table) {
+            $table->integer('car_mark_id');
             $table->integer('markable_id');
             $table->string('markable_type');
         });
@@ -27,6 +27,6 @@ class CreateMarkableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('markable');
+        Schema::dropIfExists('markables');
     }
 }

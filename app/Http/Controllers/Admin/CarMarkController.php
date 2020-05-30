@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\CarMark;
+use App\CarType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class CarMarkController extends Controller
      */
     public function create()
     {
-        return view('admin.car_marks.create', ['typeCars' => []]);
+        return view('admin.car_marks.create', ['types' => CarType::all()]);
     }
 
     /**
@@ -36,7 +37,13 @@ class CarMarkController extends Controller
      */
     public function store(Request $request)
     {
-        CarMark::create($request->all());
+        // dd($request->input('types'));
+        $carMark = CarMark::create($request->all());
+        if($request->input('types'))
+        {
+            $carMark->carType()->attach($request->input('types'));
+        }
+
         return redirect()->route('admin.car_mark.index');
     }
 
@@ -60,7 +67,9 @@ class CarMarkController extends Controller
     public function edit(CarMark $carMark)
     {
         return view('admin.car_marks.edit', [
-            'carMark' => $carMark
+            'carMark' => $carMark,
+            'types' => CarType::all()
+
         ]);
     }
 
@@ -74,6 +83,11 @@ class CarMarkController extends Controller
     public function update(Request $request, CarMark $carMark)
     {
         $carMark->update($request->all());
+        $carMark->carType()->detach();
+        if ($request->input('types'))
+        {
+            $carMark->carType()->attach($request->input('types'));
+        }
         return redirect()->route('admin.car_mark.index');
     }
 
@@ -85,6 +99,7 @@ class CarMarkController extends Controller
      */
     public function destroy(CarMark $carMark)
     {
+        $carMark->carType()->detach();
         $carMark->delete();
         return redirect()->route('admin.car_mark.index');
     }

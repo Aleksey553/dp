@@ -3,47 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use DateTime;
 use Illuminate\Http\Request;
 use App\CarModel;
 use App\CarType;
 use App\CarMark;
+use Illuminate\Support\Facades\Auth;
+
 class VueController extends Controller
 {
 
     public function index()
     {
-        return view('records.index', [
 
-            'types' => CarType::all()
+        $userId = (Auth::check())? Auth::user()->id : 0;
+
+        $maxTime = new DateTime();
+        $maxTime->modify('+1 month');
+        $maxTime->setTime(18, 0);
+        $minTime = new DateTime();
+
+        $minTime->setTime(9, 0);
+//        dd($maxTime);
+        // dd($userId);
+        return view('records.index', [
+            'types' => CarType::all(),
+            'userId' => $userId,
+            'minTime' => $minTime->format('Y-m-d\TH:i'),
+            'maxTime' => $maxTime->format('Y-m-d\TH:i'),
         ]);
     }
-
-    public function getMarks(Request $request, $idType)
-    {
-        return json_encode(CarType::find($idType)->carMark);
-    }
-    public function getModels(Request $request, $idMark)
-    {
-        return json_encode(CarMark::find($idMark)->carModel);
-    }
-
-    public function buildTree($items)
-    {
-        $grouped = $items->groupBy('parent_id');
-
-        foreach ($items as $item)
-        {
-            if ($grouped->has($item->id))
-            {
-                $item->children = $grouped[$item->id];
-            }
-        }
-        return $items->where('parent_id', null);
-    }
-    public function getCategories()
-    {
-        $categories =  Category::all();
-        return json_encode($this->buildTree($categories));
-    }
-
 }

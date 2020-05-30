@@ -49,7 +49,12 @@
 </div>
 
 
-
+<label for="">Год от</label>
+<input type="number" class="form-control" name="year_from" placeholder="2000" value="{{isset($model->title) ? $model->year_from : ""}}"
+       required>
+<label for="">до</label>
+<input type="number" class="form-control" name="year_to" placeholder="20003" value="{{isset($model->title) ? $model->year_to : ""}}"
+       required>
 
 <label for="">Наименование</label>
 <input type="text" class="form-control" name="title" placeholder="Заголовок категории" value="{{isset($model->title) ? $model->title : ""}}"

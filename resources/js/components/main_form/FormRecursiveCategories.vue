@@ -1,5 +1,14 @@
 <template>
     <div class="row">
+        <!--                <form-recursive-categories-->
+        <!--                    :onSubmit='onSubmit'-->
+        <!--                    :item="item"-->
+        <!--                    :index="index"-->
+        <!--                    v-for="(item, index) in categories"-->
+        <!--                    :key="item.id"-->
+
+        <!--                >-->
+        <!--                </form-recursive-categories>-->
         <div @click="onClick" class="row col">
             {{ item.title }}
             <div class="col" v-if="item.children && item.children.length > 0">

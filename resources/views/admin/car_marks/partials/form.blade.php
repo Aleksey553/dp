@@ -14,4 +14,24 @@
 <input type="text" class="form-control" name="title" placeholder="Заголовок категории" value="{{isset($carMark->title) ? $carMark->title : ""}}"
 required>
 
+<div class="form-group">
+    <select class="form-control" name="types[]" multiple>
+        <option value="0">Тип не выбрана</option>
+        @foreach($types as $type)
+            <option value="{{isset($type->id) ? $type->id : ""}}"
+                    @isset($carMark->id)
+                        @foreach($carMark->carType as $carMarkType)
+                        {{-- {{dd($carMarkType)}} --}}
+                            @if($type->id == $carMarkType->id)
+                                selected="selected"
+                            @endif
+                        @endforeach
+                    @endisset
+            >
+                {!! $type->title !!}
+            </option>
+        @endforeach
+    </select>
+</div>
+
 <input class="btn btn-primary" type="submit" value="Сохранить">

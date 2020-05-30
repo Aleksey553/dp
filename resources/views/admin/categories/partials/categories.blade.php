@@ -1,14 +1,10 @@
-{{--{{dd($categories)}}--}}
 @foreach($categories as $categoryList)
 
 
     <option value="{{isset($categoryList->id) ? $categoryList->id : ""}}"
             @isset($category->id)
-                @if($category->id == $categoryList->parent_id)
+                @if($category->parent_id == $categoryList->id)
                 selected
-                @endif
-                @if($category->id == $categoryList->id)
-            hidden
                 @endif
             @endisset
     >

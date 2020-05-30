@@ -41,6 +41,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         $service = Service::create($request->all());
 
         if ($request->input('categories'))

@@ -4,12 +4,12 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Example Component</div>
                 <div class="form-control-md">
-
-                    <form-component v-bind:types='@json($types)'>
+{{--                    {{dd($minTime)}}--}}
+                <form-component v-bind:min-time='@json($minTime)' v-bind:max-time='@json($maxTime)' v-bind:types='@json($types)' v-bind:user-id='{{$userId}}'>
                     </form-component>
 
                 </div>

@@ -12,6 +12,7 @@ class Service extends Model
         'title',
         'slug',
         'published',
+        'price',
         'image',
         'image_show',
         'pr_description',
@@ -22,7 +23,15 @@ class Service extends Model
         'modifed_by',
     ];
 
+    public function getDtFromAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d\TH:i');
+    }
 
+    public function getDtBeforeAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d\TH:i');
+    }
     public function categories()
     {
         return $this->morphToMany('App\Category', 'categoryable');

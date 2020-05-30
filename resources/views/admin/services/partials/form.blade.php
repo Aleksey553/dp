@@ -22,7 +22,12 @@ readonly>
         <option value="0"> <- Без родительской категиории -> </option>
         @include('admin.services.partials.categories', ['categories' => $categories])
 </select>
-
+<label for="">Указать цену</label>
+<input type="number" name="price" class="form-control" value="{{isset($service->price)? $service->price : ''}}">
+<label for="">Доступно к записи от</label>
+<input type="datetime-local" class="form-control" name="dt_from" value="{{isset($service->dt_from)? $service->dt_from : 'YYYY-MM-DD HH:MM' }}">
+<label for="">До</label>
+<input type="datetime-local" class="form-control" name="dt_before" value="{{isset($service->dt_before)? $service->dt_before  : '' }}">
 <label for="">Краткое описание</label>
 <textarea name="pr_description" id="pr_description" class="form-control">{{isset($service->pr_description)? $service->pr_description : '' }} </textarea>
 <label for="">Полное описание</label>

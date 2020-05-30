@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition sidebar-mini layout-fixed">
+@include('admin.layouts.header')
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -157,98 +146,8 @@
                     <a href="{{ route('admin.user_management.user.edit', Auth::user()) }}" class="d-block">{{ Auth::user()->name }}</a>
                 </div>
             </div>
+        @include('admin.layouts.sidebar')
 
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                {{--Категории--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с категориями @endslot
-                        @slot('menuOpen') {!! Request::is('admin/category*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/category*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/category')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/category/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список категорий  @endslot
-                        @slot('nameCreate') Создать категорию  @endslot
-                        @slot('routeIndex') {!! route('admin.category.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.category.create')!!}  @endslot
-                    @endcomponent
-                {{--Услуги--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с услугами @endslot
-                        @slot('menuOpen') {!! Request::is('admin/services*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/services*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/services')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/services/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список услуг  @endslot
-                        @slot('nameCreate') Создать услугу  @endslot
-                        @slot('routeIndex') {!! route('admin.services.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.services.create')!!}  @endslot
-                    @endcomponent
-                {{--Пользователи--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с пользователями @endslot
-                        @slot('menuOpen') {!! Request::is('admin/user_management/user*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/user_management/user*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/user_management/user')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/user_management/user/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список пользователей  @endslot
-                        @slot('nameCreate') Создать пользователя  @endslot
-                        @slot('routeIndex') {!! route('admin.user_management.user.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.user_management.user.create')!!}  @endslot
-                    @endcomponent
-                    {{--Типы машин--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с типами машин @endslot
-                        @slot('menuOpen') {!! Request::is('admin/car_type*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/car_type*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/car_type')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/car_type/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список типов @endslot
-                        @slot('nameCreate') Создать тип @endslot
-                        @slot('routeIndex') {!! route('admin.car_type.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.car_type.create')!!}  @endslot
-                    @endcomponent
-                    {{--Марки машин--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с марками машин @endslot
-                        @slot('menuOpen') {!! Request::is('admin/car_mark*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/car_mark*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/car_mark')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/car_mark/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список марок @endslot
-                        @slot('nameCreate') Создать марку @endslot
-                        @slot('routeIndex') {!! route('admin.car_mark.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.car_mark.create')!!}  @endslot
-                    @endcomponent
-                    {{--Модели машин--}}
-                    @component('admin.components.nav-item.nav-menu-open')
-                        @slot('mainTitle') Действия с моделями машин @endslot
-                        @slot('menuOpen') {!! Request::is('admin/car_model*') ? 'menu-open' : '' !!} @endslot
-                        @slot('menuActive') {!! Request::is('admin/car_model*') ? 'active' : '' !!}  @endslot
-                        @slot('activeIndex') {!! Request::is('admin/car_model')  ? 'active' : '' !!} @endslot
-                        @slot('activeCreate') {!! Request::is('admin/car_model/create') ? 'active' : '' !!}  @endslot
-                        @slot('nameIndex') Список моделей @endslot
-                        @slot('nameCreate') Создать модель @endslot
-                        @slot('routeIndex') {!! route('admin.car_model.index')!!}  @endslot
-                        @slot('routeCreate') {!! route('admin.car_model.create')!!}  @endslot
-                    @endcomponent
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            <i class="nav-icon far fa-circle text-danger"></i>
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
         <!-- /.sidebar -->
     </aside>
 
@@ -257,33 +156,5 @@
        @yield('content')
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.0
-        </div>
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<script src="{{asset('js/app.js') }}"></script>
-<script>
-
-    $('.nav-link').on('click', function () {
-        if (!$(this).hasClass('active'))
-        {
-            $(this).addClass('active');
-        }else{
-            $(this).removeClass('active');
-        }
-    });
-</script>
-</body>
+    @include('admin.layouts.footer')
 </html>

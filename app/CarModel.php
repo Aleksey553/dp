@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CarModel extends Model
 {
-    protected $fillable = ['title', 'published'];
+    protected $fillable = ['title', 'published', 'body_number', 'mileage', 'year_from', 'year_to'];
+    public function modeltable()
+    {
+        return $this->morphTo();
+    }
 
     public function carType()
     {

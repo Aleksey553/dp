@@ -17,8 +17,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+//            $table->integer('car_model_id')->nullable();
+            $table->string('body_number')->nullable();
+            $table->integer('mileage')->nullable();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedSmallInteger('role');

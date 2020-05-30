@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->boolean('published');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
+            $table->integer('price')->nullable();
             $table->dateTime('dt_from')->nullable();
             $table->dateTime('dt_before')->nullable();
             $table->string('pr_description')->nullable();

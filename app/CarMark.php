@@ -13,6 +13,6 @@ class CarMark extends Model
     }
     public function carType()
     {
-        return $this->morphToMany('App\CarType', 'markable');
+        return $this->morphedByMany('App\CarType', 'markable');
     }
 }

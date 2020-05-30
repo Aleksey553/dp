@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
-
+// global.$ = require('bootstrap-datepicker');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,12 +35,16 @@ const app = new Vue({
 });
 
 
-$.widget.bridge('uibutton', $.ui.button);
+// $.widget.bridge('uibutton', $.ui.button);
+
+$(function(){
+    //2. Получить элемент, к которому необходимо добавить маску
+    $("#phone").mask("8(999) 999-9999");
+});
 
 
 var ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
-
-
+// $('#phone').mask('+0 (000) 000 00 00', {placeholder: "+_ (___) ___ __ __"});
 ClassicEditor
     .create(document.querySelector('#pr_description'))
     .catch(error => {

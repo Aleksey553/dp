@@ -16,6 +16,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'phone' => ['required', 'string'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', ],
@@ -26,19 +27,20 @@ class UserController extends Controller
         }
         $input = $request->all();
         $user = User::create([
+            'phone' => $input['phone'],
             'role' => User::ROLE_USER,
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => bcrypt($input['password']),
         ]);
-        $success['token'] =  $user->createToken('MyApp')-> accessToken;
+        $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
         return response()->json(['success'=>$success], $this->successStatus);
     }
     public function login(){
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
             $user = Auth::user();
-            $success['token'] =  $user->createToken('MyApp')-> accessToken;
+            $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => $success], $this-> successStatus);
         }
         else{
@@ -56,11 +58,5 @@ class UserController extends Controller
 
         // $token->revoke();
         // return response()->json([], 204);
-    }
-
-    public function details()
-    {
-        $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
     }
 }
