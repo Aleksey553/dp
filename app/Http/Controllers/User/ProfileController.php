@@ -79,7 +79,7 @@ class ProfileController extends Controller
         $validateData = Validator::make($request->all(),[
             'name' => ['required'],
             'phone' => ['required','min:15'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore(Auth::id())],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 

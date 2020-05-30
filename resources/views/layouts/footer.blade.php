@@ -24,7 +24,7 @@
                         <a href="{{route('login')}}">Авторизация</a>
                     </li>
                     <li>
-                        <a href="{{route('login')}}">Регистрация</a>
+                        <a href="{{route('register')}}">Регистрация</a>
                     </li>
                 </ul>
 
@@ -52,7 +52,15 @@
                             <a href="{{ Auth::user()->role == App\User::ROLE_ADMIN ? route('admin.user_management.user.edit', Auth::user()): route('profile.index') }}">Профиль</a>
                         </li>
                         <li>
-                            <a href="{{route('logout')}}">Вызод</a>
+                            <a class="" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ 'выход' }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>
