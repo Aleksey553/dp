@@ -33,7 +33,9 @@ Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:
     Route::get('/p_categories/', 'ContentController@getCategories');
     Route::get('/p_services/', 'ContentController@getServices');
     Route::post('/p_orders/', 'ContentController@postOrder');
-
+    Route::get('user/', function (Request $request) {
+        return $request->user();
+    });
     Route::post('logout', 'Auth\UserController@logout');
 });
 // Route::group(['namespace' => 'Api', 'as' => ['api'], 'middleware' =>['auth:api']], function (){
@@ -42,9 +44,7 @@ Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:
 // });
 
 Route::middleware('auth:api')->group(function () {
-    // Route::get('users/', function (Request $request) {
-    //     return $request->user();
-    // });
+
 
 
 
