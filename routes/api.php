@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'Api'], function (){
+Route::group(['namespace' => 'Api', ['as' => 'apiPhoness']], function (){
     Route::get('/types/', 'ContentController@getTypes');
     Route::get('/marks/', 'ContentController@getMarks');
     Route::get('/models/', 'ContentController@getModels');
@@ -23,8 +23,32 @@ Route::group(['namespace' => 'Api'], function (){
     Route::group(['namespace' => 'Auth'], function (){
         Route::post('/login', 'UserController@login');
         Route::post('/register', 'UserController@register');
+        // Route::post('/logout', 'UserController@logout');
+        Route::post('/refresh', 'UserController@refresh');
     });
 });
+Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:api']], function (){
+    Route::get('/p_marks/', 'ContentControllerPhone@getMarks');
+    Route::get('/p_models/', 'ContentController@getModels');
+    Route::get('/p_categories/', 'ContentController@getCategories');
+    Route::get('/p_services/', 'ContentController@getServices');
+    Route::post('/p_orders/', 'ContentController@postOrder');
 
+    Route::post('logout', 'Auth\UserController@logout');
+});
+// Route::group(['namespace' => 'Api', 'as' => ['api'], 'middleware' =>['auth:api']], function (){
+//     // Route::get('/marks/', 'Api\ContentController@getMarks');
+//
+// });
+
+Route::middleware('auth:api')->group(function () {
+    // Route::get('users/', function (Request $request) {
+    //     return $request->user();
+    // });
+
+
+
+    // Route::get('posts', 'Api\PostController@index');
+});
 
 
