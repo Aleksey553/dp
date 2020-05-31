@@ -52815,7 +52815,7 @@ var app = new Vue({
 
 $(function () {
   //2. Получить элемент, к которому необходимо добавить маску
-  $("#phone").mask("8(999) 999-9999");
+  $("#phone").mask("+7 (999) 999-99-99");
 });
 
 var ClassicEditor = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"); // $('#phone').mask('+0 (000) 000 00 00', {placeholder: "+_ (___) ___ __ __"});
