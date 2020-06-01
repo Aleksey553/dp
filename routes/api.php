@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Api', ['as' => 'apiPhoness']], function (){
     });
 });
 Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:api']], function (){
+    Route::get('/p_types/', 'ContentControllerPhone@getTypes');
     Route::get('/p_marks/', 'ContentControllerPhone@getMarks');
     Route::get('/p_models/', 'ContentController@getModels');
     Route::get('/p_categories/', 'ContentController@getCategories');

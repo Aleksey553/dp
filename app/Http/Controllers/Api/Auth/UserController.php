@@ -47,7 +47,7 @@ class UserController extends Controller
 
     	$this->validate($request, [
     		'email' => ['required', 'string', 'email', 'max:255'],
-    		'password' => 'required'
+    		'password' => ['required', 'min:8']
     	]);
 
         return $this->issueToken($request, 'password');

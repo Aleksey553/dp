@@ -29,7 +29,7 @@ class ContentControllerPhone extends Controller
             return response()->json([
                 'types' => $carTypes,
                 'message' => self::MESSAGE_OK
-            ]);
+            ], 200);
         }
         return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__]);
     }
@@ -48,7 +48,7 @@ class ContentControllerPhone extends Controller
                 return response()->json([
                     'marks' => $marks,
                     'message' => self::MESSAGE_OK
-                ]);
+                ], 200);
             }
             return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__]);
         }
@@ -71,9 +71,9 @@ class ContentControllerPhone extends Controller
                 return response()->json([
                     'models' => $models,
                     'message' => self::MESSAGE_OK
-                ]);
+                ], 200);
             }
-            return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__]);
+            return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__], 422);
         }
 
         return response()->json(['request' => $request, 'message' => self::MESSAGE_ERROR_UNKNOWN_VAR . ':' . __FUNCTION__]);
@@ -90,7 +90,7 @@ class ContentControllerPhone extends Controller
                 return response()->json([
                     'categories' => $categories,
                     'message' => self::MESSAGE_OK
-                ]);
+                ], 200);
             }
             return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__]);
         }
@@ -106,7 +106,7 @@ class ContentControllerPhone extends Controller
                 return response()->json([
                     'services' => $services,
                     'message' => self::MESSAGE_OK
-                ]);
+                ], 200);
             }
             return response()->json(['message' => self::MESSAGE_ERROR_EMPTY . ':' . __FUNCTION__]);
         }
@@ -136,7 +136,7 @@ class ContentControllerPhone extends Controller
         }
 
         if(count($errors) > 0){
-            return response()->json($errors);
+            return response()->json($errors, 422);
         }
 
 
