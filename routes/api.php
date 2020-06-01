@@ -28,12 +28,12 @@ Route::group(['namespace' => 'Api', ['as' => 'apiPhoness']], function (){
     });
 });
 Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:api']], function (){
-    Route::get('/p_types/', 'ContentControllerPhone@getTypes');
-    Route::get('/p_marks/', 'ContentControllerPhone@getMarks');
-    Route::get('/p_models/', 'ContentController@getModels');
-    Route::get('/p_categories/', 'ContentController@getCategories');
-    Route::get('/p_services/', 'ContentController@getServices');
-    Route::post('/p_orders/', 'ContentController@postOrder');
+    Route::get('/p_types', 'ContentControllerPhone@getTypes');
+    Route::get('/p_marks', 'ContentControllerPhone@getMarks');
+    Route::get('/p_models', 'ContentController@getModels');
+    Route::get('/p_categories', 'ContentController@getCategories');
+    Route::get('/p_services', 'ContentController@getServices');
+    Route::post('/p_orders', 'ContentController@postOrder');
     Route::get('user/', function (Request $request) {
         return $request->user();
     });

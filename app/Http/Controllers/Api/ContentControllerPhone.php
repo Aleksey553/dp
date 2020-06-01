@@ -24,7 +24,7 @@ class ContentControllerPhone extends Controller
 
     public function getTypes()
     {
-        $carTypes = CarType::where('published', self::PUBLISHED);
+        $carTypes = CarType::where('published', self::PUBLISHED)->get();
         if (count($carTypes) > 0) {
             return response()->json([
                 'types' => $carTypes,
