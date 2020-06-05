@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:
         return $request->user();
     });
     Route::post('logout', 'Auth\UserController@logout');
+    Route::get('/p_my_orders', 'ContentControllerPhone@getOrders');
 });
 // Route::group(['namespace' => 'Api', 'as' => ['api'], 'middleware' =>['auth:api']], function (){
 //     // Route::get('/marks/', 'Api\ContentController@getMarks');

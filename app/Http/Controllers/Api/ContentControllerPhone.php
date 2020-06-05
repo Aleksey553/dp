@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Orders;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use App\CarMark;
@@ -117,25 +118,25 @@ class ContentControllerPhone extends Controller
     {
         $errors = [];
         if ($request->userId == null) {
-            $errors[]['message'] =  'Авторизуйтесь';
+            $errors[]['message'] = 'Авторизуйтесь';
         }
         if ($request->arService == null) {
-            $errors[]['message'] =  'Не выбраны услуги';
+            $errors[]['message'] = 'Не выбраны услуги';
         }
         if ($request->date == null) {
-            $errors[]['message'] =  'Не выбрана дата';
+            $errors[]['message'] = 'Не выбрана дата';
         }
         if (!isset($request->idModel)) {
-            $errors[]['message'] =  'Не выбрана модель авто';
+            $errors[]['message'] = 'Не выбрана модель авто';
         }
         if (!isset($request->idMark)) {
-            $errors[]['message'] =  'Не выбрана марка авто';
+            $errors[]['message'] = 'Не выбрана марка авто';
         }
         if (!isset($request->idType)) {
-            $errors[]['message'] =  'Не выбран тип авто';
+            $errors[]['message'] = 'Не выбран тип авто';
         }
 
-        if(count($errors) > 0){
+        if (count($errors) > 0) {
             return response()->json($errors, 422);
         }
 
@@ -150,4 +151,39 @@ class ContentControllerPhone extends Controller
             'status' => Orders::STATUS_WAITING
         ]);
     }
+
+    public function getOrders(Request $request)
+    {
+        $errors = [];
+        if (!isset($request->userId)) {
+            return response()->json($errors, 422);
+        }
+        $orders = Orders::with(['user', 'mark', 'model', 'type'])
+            ->where('user_id', $request->userId)
+            ->get();
+        foreach ($orders as $oder) {
+
+            $this->getServiceOrder($oder);
+            switch ($oder->status) {
+                case Orders::STATUS_WAITING:
+                    $oder->status = "В ожидании";
+                    break;
+                case Orders::STATUS_CANCEL:
+                    $oder->status = "Отменено";
+                    break;
+                case Orders::STATUS_DONE:
+                    $oder->status = "Выполнено";
+                    break;
+            }
+        }
+        return response()->json(["orders" => $orders], 200);
+    }
+
+    private function getServiceOrder(Orders $oder)
+    {
+        $oder->service_id = (array)unserialize($oder->service_id);
+        $oder->service_id = Service::find($oder->service_id);
+        return $oder->service_id;
+    }
+
 }
