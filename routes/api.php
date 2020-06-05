@@ -32,8 +32,8 @@ Route::group(['namespace' => 'Api',['as' => 'apiPhone'] , 'middleware' =>['auth:
     Route::get('/p_marks', 'ContentControllerPhone@getMarks');
     Route::get('/p_models', 'ContentController@getModels');
     Route::get('/p_categories', 'ContentController@getCategories');
-    Route::get('/p_services', 'ContentController@getServices');
-    Route::post('/p_orders', 'ContentController@postOrder');
+    Route::get('/p_services', 'ContentControllerPhone@getServices');
+    Route::post('/p_orders', 'ContentControllerPhone@postOrder');
     Route::get('user/', function (Request $request) {
         return $request->user();
     });
