@@ -141,20 +141,20 @@ class ContentControllerPhone extends Controller
         }
 
         // if (count($request->arService) > 0) {
-        return response()->json([(array)$request->arService], 200);
+        // return response()->json([(array)$request->arService], 200);
         // }
 
         // dd($request->arService);
 
-        // return Orders::create([
-        //     'user_id' => $request->userId,
-        //     'service_id' => serialize($request->arService),
-        //     'car_model_id' => $request->idModel,
-        //     'car_mark_id' => $request->idMark,
-        //     'car_type_id' => $request->idType,
-        //     'date' => $request->date,
-        //     'status' => Orders::STATUS_WAITING
-        // ]);
+        return Orders::create([
+            'user_id' => $request->userId,
+            'service_id' => serialize($request->arService),
+            'car_model_id' => $request->idModel,
+            'car_mark_id' => $request->idMark,
+            'car_type_id' => $request->idType,
+            'date' => $request->date,
+            'status' => Orders::STATUS_WAITING
+        ]);
     }
 
     public function getOrders(Request $request)
