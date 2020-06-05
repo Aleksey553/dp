@@ -154,12 +154,8 @@ class ContentControllerPhone extends Controller
 
     public function getOrders(Request $request)
     {
-        $errors = [];
-        if (!isset($request->userId)) {
-            return response()->json($errors, 422);
-        }
         $orders = Orders::with(['user', 'mark', 'model', 'type'])
-            ->where('user_id', $request->userId)
+            ->where('user_id', Auth::id())
             ->get();
         foreach ($orders as $oder) {
 
