@@ -141,7 +141,7 @@ class ContentControllerPhone extends Controller
         }
 
         // if (count($request->arService) > 0) {
-        return response()->json((array)$request->arService, 200);
+        return response()->json($request->arService, 200);
         // }
 
         // dd($request->arService);
