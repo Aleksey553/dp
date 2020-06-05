@@ -140,6 +140,11 @@ class ContentControllerPhone extends Controller
             return response()->json($errors, 422);
         }
 
+        // if (count($request->arService) > 0) {
+        return response()->json((array)$request->arService, 200);
+        // }
+
+        // dd($request->arService);
 
         return Orders::create([
             'user_id' => $request->userId,
