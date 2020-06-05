@@ -47,7 +47,7 @@
                     @endforelse
                     </tbody>
                     <tfoot>
-                    @if(count($typeCars) > 10)
+
                         <tr>
                             <td colspan="3">
                                 <ul class="pagination pull-right">
@@ -55,7 +55,7 @@
                                 </ul>
                             </td>
                         </tr>
-                    @endif
+
                     </tfoot>
                 </table>
             </div>

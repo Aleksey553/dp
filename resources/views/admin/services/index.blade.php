@@ -49,7 +49,7 @@
                     @endforelse
                     </tbody>
                     <tfoot>
-                    @if(count($services) > 10)
+
                         <tr>
                             <td colspan="3">
                                 <ul class="pagination pull-right">
@@ -58,7 +58,7 @@
 
                             </td>
                         </tr>
-                    @endif
+
                     </tfoot>
                 </table>
             </div>

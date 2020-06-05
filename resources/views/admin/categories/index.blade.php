@@ -47,16 +47,17 @@
                         @endforelse
                         </tbody>
                         <tfoot>
-                        @if(count($categories) > 10)
-                            <tr>
-                                <td colspan="3">
-                                    <ul class="pagination pull-right">
-                                        {{$categories->links()}}
-                                    </ul>
 
-                                </td>
-                            </tr>
-                        @endif
+                        {{-- {{dd($categories)}} --}}
+                        <tr>
+                            <td colspan="3">
+                                <ul class="pagination pull-right">
+                                    {{$categories->links()}}
+                                </ul>
+
+                            </td>
+                        </tr>
+
                         </tfoot>
                     </table>
                 </div>
