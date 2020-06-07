@@ -6,7 +6,7 @@
             @component('admin.components.breadcrumb')
                 @slot('title') Заказы @endslot
                 @slot('parent') Главная @endslot
-                @slot('active') создание создание заказов  @endslot
+                @slot('active') создание заказов  @endslot
             @endcomponent
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->

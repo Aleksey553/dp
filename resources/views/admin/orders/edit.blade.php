@@ -6,7 +6,7 @@
             @component('admin.components.breadcrumb')
                 @slot('title') Заказы @endslot
                 @slot('parent') Главная @endslot
-                @slot('active') {{$order->title}} @endslot
+                @slot('active') Заказ под номером {{$order->id}} @endslot
             @endcomponent
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
