@@ -15,6 +15,7 @@
 //Route::post('/register', 'Api\Auth\UserController@register');
 
 Route::get('/', 'VueController@index')->name('main');
+Route::get('/about', 'VueController@about')->name('about');
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['verified']);
 Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'verified']], function(){

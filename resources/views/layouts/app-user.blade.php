@@ -4,7 +4,8 @@
 
     <div id="app">
         @include('layouts.navbar')
-        <main class="py-4 container-fluid">
+
+        <main class="py-4 container-fluid " style="">
             @yield('content')
         </main>
 

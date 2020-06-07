@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Подтвердите свой емаил адрес') }}</div>
+                <div class="card-header text-white  navbar-bg-n">{{ __('Подтвердите свой емаил адрес') }}</div>
 
-                <div class="card-body">
+                <div class="card-body text-white  bg-dark">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{ __('Только что была выслана ссылка на ваш емаил для верфикации вашего аккаунта') }}

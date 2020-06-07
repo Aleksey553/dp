@@ -4,11 +4,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Condensed Full Width Table</h3>
+            <div class="card-header text-white  navbar-bg-n">
+                <h3 class="card-title">Мои заказы</h3>
             </div>
-            <div class="card-body table-responsive-lg" style="overflow-x:auto;">
-                <table class="table table-hover">
+            <div class="card-body table-responsive-lg text-white  bg-dark" style="overflow-x:auto;">
+                <table class="table">
                     <thead>
                         <tr>
                             <th >Тип машины</th>

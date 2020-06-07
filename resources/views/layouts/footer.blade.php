@@ -1,4 +1,4 @@
-<footer id="user-footer" class="navbar-light navbar-nav expand-md bg-white shadow-lg">
+<footer id="user-footer" class="navbar-light navbar-nav expand-md bg-dark shadow-lg">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -17,23 +17,26 @@
             <div class="col-md-3 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Ссылки</h5>
+                <h5 class="font-weight-bold text-blue  text-uppercase mt-3 mb-4">Ссылки</h5>
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="{{route('login')}}">Авторизация</a>
+                        <a class="text-white" href="{{route('login')}}">Авторизация</a>
                     </li>
                     <li>
-                        <a href="{{route('register')}}">Регистрация</a>
+                        <a class="text-white" href="{{route('register')}}">Регистрация</a>
                     </li>
                 </ul>
 
             </div>
             <div class="col-md-3 mx-auto">
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Ссылки</h5>
+                <h5 class="font-weight-bold  text-blue  text-uppercase mt-3 mb-4">Ссылки</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="{{route('main')}}">Главная</a>
+                        <a class="text-white" href="{{route('main')}}">Главная</a>
+                    </li>
+                    <li>
+                        <a class="text-white" href="{{ route('about') }}">О нас</a>
                     </li>
                 </ul>
             </div>
@@ -42,17 +45,17 @@
                 <div class="col-md-3 mx-auto">
 
                     <!-- Links -->
-                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Ссылки</h5>
+                    <h5 class="font-weight-bold  text-blue text-uppercase mt-3 mb-4">Ссылки</h5>
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('orders.index') }}">Мои заказы</a>
+                            <a class="text-white" href="{{ route('orders.index') }}">Мои заказы</a>
                         </li>
                         <li>
-                            <a href="{{ Auth::user()->role == App\User::ROLE_ADMIN ? route('admin.user_management.user.edit', Auth::user()): route('profile.index') }}">Профиль</a>
+                            <a class="text-white" href="{{ Auth::user()->role == App\User::ROLE_ADMIN ? route('admin.user_management.user.edit', Auth::user()): route('profile.index') }}">Профиль</a>
                         </li>
                         <li>
-                            <a class="" href="{{ route('logout') }}"
+                            <a class="text-white" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ 'выход' }}
@@ -65,10 +68,13 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mx-auto">
-                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Ссылки</h5>
+                    <h5 class="font-weight-bold  text-blue  text-uppercase mt-3 mb-4">Ссылки</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="{{ route('main') }}">Главная</a>
+                            <a class="text-white" href="{{ route('main') }}">Главная</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="{{ route('about') }}">О нас</a>
                         </li>
 
                     </ul>

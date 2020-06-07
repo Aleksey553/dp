@@ -40193,17 +40193,17 @@ var render = function() {
             { staticClass: "bg-gradient-danger container" },
             _vm._l(_vm.errors, function(error, index) {
               return _c("div", {}, [
-                _vm._v("\r\n                " + _vm._s(error.message) + "\r\n")
+                _vm._v("\n                " + _vm._s(error.message) + "\n")
               ])
             }),
             0
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "form-row container" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-10" }, [
+        _c("div", { staticClass: "col-md-10 shadow-lg bg-dark" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { staticClass: "text-dark" }, [
               _vm._v("Выбор типа автомобиля")
@@ -40240,9 +40240,9 @@ var render = function() {
               _vm._l(_vm.types, function(type) {
                 return _c("option", { domProps: { value: type.id } }, [
                   _vm._v(
-                    "\r\n                            " +
+                    "\n                            " +
                       _vm._s(type.title) +
-                      "\r\n                        "
+                      "\n                        "
                   )
                 ])
               }),
@@ -40287,9 +40287,9 @@ var render = function() {
                   _vm._l(_vm.marks, function(mark) {
                     return _c("option", { domProps: { value: mark.id } }, [
                       _vm._v(
-                        "\r\n                            " +
+                        "\n                            " +
                           _vm._s(mark.title) +
-                          "\r\n                        "
+                          "\n                        "
                       )
                     ])
                   }),
@@ -40335,9 +40335,9 @@ var render = function() {
                   _vm._l(_vm.models, function(model) {
                     return _c("option", { domProps: { value: model.id } }, [
                       _vm._v(
-                        "\r\n                            " +
+                        "\n                            " +
                           _vm._s(model.title) +
-                          "\r\n                        "
+                          "\n                        "
                       )
                     ])
                   }),
@@ -40349,16 +40349,19 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.modelDone
-        ? _c("div", { staticClass: "form-row" }, [
+        ? _c("div", { staticClass: "form-row container" }, [
             _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-10" }, [
               _vm.categoriesDone
                 ? _c(
                     "div",
-                    { staticClass: "container mt-md-3 mb-md-3 shadow rounded" },
+                    {
+                      staticClass:
+                        "container mt-md-2 mb-md-2 shadow rounded bg-dark"
+                    },
                     [
-                      _c("div", { staticClass: "row bg-dark" }, [
+                      _c("div", { staticClass: "row" }, [
                         _c(
                           "div",
                           { staticClass: "col-sm" },
@@ -40367,15 +40370,18 @@ var render = function() {
                               "div",
                               {
                                 staticClass:
-                                  "mt-md-1 mb-md-1  bg-secondary rounded",
-                                attrs: { value: category.id },
+                                  "container mt-md-2 mb-md-3 text text-white text-s-custom navbar-bg-n rounded cursor-p",
+                                attrs: {
+                                  "data-toggle": "tooltip",
+                                  value: category.id
+                                },
                                 on: { click: _vm.onClickCategory }
                               },
                               [
                                 _vm._v(
-                                  "\r\n                                " +
+                                  "\n                                " +
                                     _vm._s(category.title) +
-                                    "\r\n                            "
+                                    "\n                            "
                                 )
                               ]
                             )
@@ -40386,21 +40392,24 @@ var render = function() {
                         _vm.subCategories
                           ? _c(
                               "div",
-                              { staticClass: "col-sm bg-secondary" },
+                              { staticClass: "col-sm" },
                               _vm._l(_vm.subCategory, function(subCateg) {
                                 return _c(
                                   "div",
                                   {
                                     staticClass:
-                                      " mt-md-1 mb-md-1 bg-secondary rounded ",
-                                    attrs: { value: subCateg.id },
+                                      "container  mt-md-2 mb-md-2 text-s-custom text-white  navbar-bg-n rounded cursor-p",
+                                    attrs: {
+                                      "data-toggle": "tooltip",
+                                      value: subCateg.id
+                                    },
                                     on: { click: _vm.onClickSubCategory }
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                " +
+                                      "\n                                " +
                                         _vm._s(subCateg.title) +
-                                        "\r\n                            "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -40412,14 +40421,18 @@ var render = function() {
                         _vm.services
                           ? _c(
                               "div",
-                              { staticClass: "col-sm bg-light" },
+                              {
+                                staticClass: "col-sm",
+                                staticStyle: { color: "#e4604f" }
+                              },
                               _vm._l(_vm.service, function(serv) {
                                 return _c(
                                   "div",
                                   {
                                     staticClass:
-                                      " mt-md-1 mb-md-1 bg-warning rounded",
+                                      "bg-light container mt-md-2 mb-md-2 text-s-custom text-color-c rounded cursor-p",
                                     attrs: {
+                                      "data-toggle": "tooltip",
                                       minDate: serv.dt_from,
                                       maxDate: serv.dt_before,
                                       title: serv.title,
@@ -40430,9 +40443,9 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                                " +
+                                      "\n                                " +
                                         _vm._s(serv.title) +
-                                        "\r\n                            "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -40448,7 +40461,10 @@ var render = function() {
               _vm.services
                 ? _c(
                     "div",
-                    { staticClass: "container mt-md-4 mb-md-4 shadow rounded" },
+                    {
+                      staticClass:
+                        "container mt-md-6 mb-md-6 shadow rounded bg-dark"
+                    },
                     [
                       _c("div", { staticClass: "row" }, [
                         _vm.date
@@ -40476,7 +40492,7 @@ var render = function() {
                                 }
                               }),
                               _vm._v(" "),
-                              _c("p", [
+                              _c("p", { staticClass: "text-white" }, [
                                 _vm._v("Выбрана дата: " + _vm._s(_vm.myDate))
                               ])
                             ])
@@ -40491,13 +40507,14 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "container bg-light mt-md-4 mb-md-4 shadow rounded"
+                        "container bg-light mt-md-4 mb-md-4 shadow rounded bg-dark text-size"
                     },
                     _vm._l(_vm.fastWatch, function(fwacth, index) {
                       return _c(
                         "div",
                         {
-                          staticClass: "row mt-md-2 mb-md-2  bg-info rounded "
+                          staticClass:
+                            "row mt-md-2 mb-md-2  text-white  navbar-bg-n rounded "
                         },
                         [
                           _c("div", { staticClass: "col-sm" }, [
@@ -40534,14 +40551,14 @@ var render = function() {
       _vm.userId
         ? _c("div", { staticClass: "form-group" }, [
             _c("input", {
-              staticClass: "form-control",
+              staticClass: "form-control navbar-bg-n text-white text-s-custom",
               attrs: { type: "submit" }
             })
           ])
         : _c("div", [
             _c("div", { staticClass: "text-center" }, [
               _vm._v(
-                "\r\n                   Авторизуйтесь, чтобы записаться на услугу\r\n                "
+                "\n                   Авторизуйтесь, чтобы записаться на услугу\n                "
               )
             ])
           ])
@@ -40555,7 +40572,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 align-self-center" }, [
       _c("div", { staticClass: "text-justify text-center" }, [
-        _vm._v("\r\n                    1 этап\r\n                ")
+        _vm._v("\n                    1 этап\n                ")
       ])
     ])
   },
@@ -40565,7 +40582,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 align-self-center" }, [
       _c("div", { staticClass: "text-justify text-center" }, [
-        _vm._v("\r\n                    2 этап\r\n                ")
+        _vm._v("\n                    2 этап\n                ")
       ])
     ])
   }

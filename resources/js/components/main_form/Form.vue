@@ -11,14 +11,14 @@
             </div>
 
         </div>
-        <div class="form-row">
+        <div class="form-row container">
 
             <div class="col-md-2 align-self-center">
                 <div class="text-justify text-center">
                     1 этап
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 shadow-lg bg-dark">
                 <div class="form-group">
                     <label class="text-dark">Выбор типа автомобиля</label>
                     <select class="form-control" v-model="idType">
@@ -45,42 +45,42 @@
                 </div>
             </div>
         </div>
-        <div v-if="modelDone" class="form-row">
+        <div v-if="modelDone" class="form-row container">
             <div class="col-md-2 align-self-center">
                 <div class="text-justify text-center">
                     2 этап
                 </div>
             </div>
             <div class="col-md-10">
-                <div   v-if="categoriesDone"  class="container mt-md-3 mb-md-3 shadow rounded">
-                    <div class="row bg-dark">
+                <div   v-if="categoriesDone"  class="container mt-md-2 mb-md-2 shadow rounded bg-dark">
+                    <div class="row">
                         <div class="col-sm">
-                            <div class="mt-md-1 mb-md-1  bg-secondary rounded" v-for="category in categories"  @click="onClickCategory" :value="category.id">
+                            <div data-toggle="tooltip"  class="container mt-md-2 mb-md-3 text text-white text-s-custom navbar-bg-n rounded cursor-p" v-for="category in categories"  @click="onClickCategory" :value="category.id">
                                 {{category.title}}
                             </div>
                         </div>
-                        <div class="col-sm bg-secondary"  v-if="subCategories">
-                            <div @click="onClickSubCategory" class=" mt-md-1 mb-md-1 bg-secondary rounded " v-for="subCateg in subCategory" :value="subCateg.id" >
+                        <div class="col-sm"  v-if="subCategories">
+                            <div @click="onClickSubCategory" data-toggle="tooltip" class="container  mt-md-2 mb-md-2 text-s-custom text-white  navbar-bg-n rounded cursor-p" v-for="subCateg in subCategory" :value="subCateg.id" >
                                 {{subCateg.title}}
                             </div>
                         </div>
-                        <div class="col-sm bg-light"  v-if="services">
-                            <div  @click="onClickService" class=" mt-md-1 mb-md-1 bg-warning rounded" v-for="serv in service" :minDate="serv.dt_from" :maxDate="serv.dt_before" :title="serv.title" :price="serv.price" :value="serv.id" >
+                        <div style="color: #e4604f" class="col-sm"  v-if="services">
+                            <div data-toggle="tooltip"  @click="onClickService" class="bg-light container mt-md-2 mb-md-2 text-s-custom text-color-c rounded cursor-p" v-for="serv in service" :minDate="serv.dt_from" :maxDate="serv.dt_before" :title="serv.title" :price="serv.price" :value="serv.id" >
                                 {{serv.title}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div  v-if="services"  class="container mt-md-4 mb-md-4 shadow rounded">
+                <div  v-if="services"  class="container mt-md-6 mb-md-6 shadow rounded bg-dark">
                     <div class="row">
                         <div v-if="date" class="form-group col-sm">
                             <input  @click="onClickDate" v-model="myDate" type="datetime-local" class="form-control">
-                            <p>Выбрана дата: {{ myDate }}</p>
+                            <p class="text-white">Выбрана дата: {{ myDate }}</p>
                         </div>
                     </div>
                 </div>
-                <div v-if="orderAr.length > 0" class="container bg-light mt-md-4 mb-md-4 shadow rounded">
-                    <div  class="row mt-md-2 mb-md-2  bg-info rounded "  v-for="(fwacth, index) in fastWatch" >
+                <div v-if="orderAr.length > 0" class="container bg-light mt-md-4 mb-md-4 shadow rounded bg-dark text-size">
+                    <div  class="row mt-md-2 mb-md-2  text-white  navbar-bg-n rounded "  v-for="(fwacth, index) in fastWatch" >
                         <div class="col-sm">{{fwacth.title}}</div>
                         <div class="col-sm">{{fwacth.price}}</div>
                         <div v-if="index > 0" class="col-sm"><button @click="onClickOrder" :value="index" class="btn btn-danger">Удалить</button></div>
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div v-if="userId" class="form-group">
-            <input class="form-control" type="submit">
+            <input class="form-control navbar-bg-n text-white text-s-custom" type="submit">
         </div>
         <div v-else>
                 <div class="text-center">

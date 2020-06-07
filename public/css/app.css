@@ -12316,6 +12316,14 @@ a.text-dark:focus {
   height: 100px !important;
 }
 
+.bg-custom {
+  background-color: #f0f0f0;
+}
+
+text-color-c {
+  color: #e4604f;
+}
+
 #user-footer {
   bottom: 0;
   margin-left: 0;
@@ -12327,9 +12335,16 @@ a.text-dark:focus {
   grid-template-rows: 1fr auto;
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.text-s-custom {
+  font-size: 16px;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+.navbar-bg-n {
+  background-color: #e4604f;
 }
 
 @media (min-width: 500.98px) {

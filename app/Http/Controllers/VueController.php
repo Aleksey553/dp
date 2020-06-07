@@ -33,4 +33,7 @@ class VueController extends Controller
             'maxTime' => $maxTime->format('Y-m-d\TH:i'),
         ]);
     }
+    public function about(){
+        return view("about.index");
+    }
 }

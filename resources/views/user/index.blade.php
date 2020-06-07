@@ -4,11 +4,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Condensed Full Width Table</h3>
+            <div class="card-header text-white  navbar-bg-n">
+                <h3 class="card-title">Мой профиль</h3>
             </div>
             <form method="POST" action="{{route('profile.update', $user)}}">
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0 text-white  bg-dark" >
                     <table class="table table-hover">
                         <thead>
                             <tr>

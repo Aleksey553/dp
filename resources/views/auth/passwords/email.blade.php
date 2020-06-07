@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Сбросить пароль') }}</div>
+                <div class="card-header text-white  navbar-bg-n">{{ __('Сбросить пароль') }}</div>
 
-                <div class="card-body">
+                <div class="card-body text-white  bg-dark">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                          Ссылка для сброса пароля отправлена на ваш емаил
                         </div>
                     @endif
 
