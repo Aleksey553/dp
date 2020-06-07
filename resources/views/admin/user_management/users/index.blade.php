@@ -6,9 +6,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 @component('admin.components.breadcrumb')
-                    @slot('title') Административная доска @endslot
+                    @slot('title') Пользователи @endslot
                     @slot('parent') Главная @endslot
-                    @slot('active') Админ панель @endslot
+                    @slot('active') все пользователи @endslot
                 @endcomponent
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -16,17 +16,17 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Condensed Full Width Table</h3>
+                <h3 class="card-title">Таблица пользователей</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th style="width: 10px">Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th style="width: 40px">Actions</th>
+                        <th style="width: 10px">Имя</th>
+                        <th>Емаил</th>
+                        <th>Роль</th>
+                        <th style="width: 40px">Действия</th>
                     </tr>
                     </thead>
                     <tbody>

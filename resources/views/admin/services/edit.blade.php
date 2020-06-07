@@ -6,7 +6,7 @@
                 @component('admin.components.breadcrumb')
                     @slot('title') Административная доска @endslot
                     @slot('parent') Главная @endslot
-                    @slot('active') Админ панель @endslot
+                    @slot('active') {{$service->title}}  @endslot
                 @endcomponent
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->

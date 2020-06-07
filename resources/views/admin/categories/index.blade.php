@@ -4,9 +4,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     @component('admin.components.breadcrumb')
-                        @slot('title') Административная доска @endslot
+                        @slot('title') Категории @endslot
                         @slot('parent') Главная @endslot
-                        @slot('active') Админ панель @endslot
+                        @slot('active') все категории @endslot
                     @endcomponent
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Condensed Full Width Table</h3>
+                    <h3 class="card-title">Таблица категорий</h3>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">

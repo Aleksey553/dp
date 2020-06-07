@@ -4,9 +4,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 @component('admin.components.breadcrumb')
-                    @slot('title') Административная доска @endslot
+                    @slot('title') Услуги @endslot
                     @slot('parent') Главная @endslot
-                    @slot('active') Админ панель @endslot
+                    @slot('active') создание услуг  @endslot
                 @endcomponent
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
