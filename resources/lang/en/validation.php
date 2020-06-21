@@ -71,9 +71,9 @@ return [
         'array' => 'The :attribute must have less than :value items.',
     ],
     'lte' => [
-        'numeric' => ' :attribute должен быть меньше или равен количеству :value символов.',
+        'numeric' => ' :attribute должен быть меньше или равен  :value символов.',
         'file' => 'The :attribute must be less than or equal :value kilobytes.',
-        'string' => ' :attribute должен быть меньше или равен количеству :value символов.',
+        'string' => ' :attribute должен быть меньше или равен  :value символов.',
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
@@ -85,9 +85,9 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => ' :attribute должен содержать не менее столько :min символов.',
+        'numeric' => ' :attribute должен содержать не менее  :min символов.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => ' :attribute должен содержать не менее столько :min символов.',
+        'string' => ' :attribute должен содержать не менее  :min символов.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
