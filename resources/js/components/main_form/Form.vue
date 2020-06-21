@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-10 shadow-lg bg-dark">
                 <div class="form-group">
-                    <label class="text-dark">Выбор типа автомобиля</label>
+                    <label class="text-white">Выбор типа автомобиля</label>
                     <select class="form-control" v-model="idType">
                         <option v-for="type in types" :value="type.id">
                             {{type.title}}
@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div  v-if="typeDone"  class="form-group">
-                    <label class="text-dark">Выбор марки автомобиля</label>
+                    <label class="text-white">Выбор марки автомобиля</label>
                     <select class="form-control" v-model="idMark">
                         <option  v-for="mark in marks" :value="mark.id">
                             {{mark.title}}
@@ -36,7 +36,7 @@
                     </select>
                 </div>
                 <div v-if="markDone" class="form-group">
-                    <label class="text-dark">Выбор модели автомобиля</label>
+                    <label class="text-white">Выбор модели автомобиля</label>
                     <select class="form-control"  v-model="idModel">
                         <option v-for="model in models" :value="model.id">
                             {{model.title}}
